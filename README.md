@@ -40,7 +40,17 @@ Dedicated full-page file browser with namespace and pod selectors, accessible fr
 
 ## Installation
 
-### From Release
+### From npm
+
+1. Open Freelens
+2. Go to **Extensions** (Ctrl+Shift+E)
+3. Enter the package name in the input field:
+   ```
+   @masoudei/freelens-pod-filebrowser
+   ```
+4. Click **Install**
+
+### From GitHub Release
 
 1. Download the latest `.tgz` from the [Releases](https://github.com/masoudei/freelens-pod-filebrowser/releases) page
 2. Open Freelens
