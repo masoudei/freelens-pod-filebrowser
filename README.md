@@ -33,6 +33,11 @@ View and edit files with syntax highlighting powered by Monaco editor. Split-pan
 
 ![File Editor](img/freelens-pod-filebrowser-2.jpg)
 
+### Cluster Page
+Dedicated full-page file browser with namespace and pod selectors, accessible from the Freelens sidebar.
+
+![Cluster Page](img/freelens-pod-filebrowser-cluster-page.jpg)
+
 ## Installation
 
 ### From Release
