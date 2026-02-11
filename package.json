@@ -1,5 +1,8 @@
 {
-  "name": "freelens-pod-filebrowser",
+  "name": "@masoudei/freelens-pod-filebrowser",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.1.0",
   "description": "Browse, view, edit, upload, and delete files inside running Kubernetes pod containers — directly from Freelens.",
   "main": "out/main/index.js",
