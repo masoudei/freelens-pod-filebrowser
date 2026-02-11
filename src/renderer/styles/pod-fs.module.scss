@@ -1,0 +1,795 @@
+// Pod Filesystem Browser - Freelens Extension Styles
+// Uses Freelens CSS custom properties for theme consistency
+
+$radius: 4px;
+$transition: 150ms ease;
+
+// ==========================================
+// Pod Details Panel
+// ==========================================
+
+.podFsPanel {
+  padding: 8px 0;
+}
+
+.browsePrompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 16px;
+  margin-top: 8px;
+  border: 1px dashed var(--borderColor, #444);
+  border-radius: $radius;
+  background: var(--mainBackground, #1e1e1e);
+}
+
+.browsePromptText {
+  color: var(--textColorDimmed, #aaa);
+  font-size: 13px;
+  margin: 0;
+  text-align: center;
+}
+
+.browseBtn {
+  font-size: 13px;
+  padding: 8px 24px;
+}
+
+.browserContainer {
+  margin-top: 8px;
+  border: 1px solid var(--borderColor, #333);
+  border-radius: $radius;
+  min-height: 350px;
+  max-height: 500px;
+  overflow: hidden;
+  background: var(--mainBackground, #1e1e1e);
+  display: flex;
+  flex-direction: column;
+
+  &.splitMode {
+    max-height: none;
+    min-height: 600px;
+  }
+}
+
+// ==========================================
+// Split Panel Layout
+// ==========================================
+
+.splitTop {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+}
+
+.splitTopCompact {
+  flex: 0 0 auto;
+  max-height: 220px;
+  min-height: 100px;
+  overflow: hidden;
+}
+
+.splitDivider {
+  height: 3px;
+  background: var(--colorInfo, #4fc3f7);
+  flex-shrink: 0;
+  opacity: 0.4;
+}
+
+.splitBottom {
+  flex: 1 1 0;
+  overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+// ==========================================
+// Breadcrumb Navigation
+// ==========================================
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--settingBackground, #252526);
+  border-bottom: 1px solid var(--borderColor, #333);
+  font-size: 12px;
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  &::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--borderColor, #555);
+    border-radius: 3px;
+  }
+}
+
+.breadcrumbSegment {
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: var(--textColorAccent, #4fc3f7);
+  transition: background $transition;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.breadcrumbActive {
+  color: var(--textColorPrimary, #ccc);
+  font-weight: 600;
+  cursor: default;
+
+  &:hover {
+    background: transparent;
+  }
+}
+
+.breadcrumbSeparator {
+  color: var(--textColorDimmed, #666);
+  margin: 0 2px;
+  font-size: 14px;
+  user-select: none;
+}
+
+// ==========================================
+// Toolbar (Search + Actions)
+// ==========================================
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--settingBackground, #252526);
+  border-bottom: 1px solid var(--borderColor, #333);
+  flex-shrink: 0;
+}
+
+.searchContainer {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+}
+
+.searchInput {
+  width: 100%;
+  background: var(--inputControlBackground, #3c3c3c);
+  color: var(--textColorPrimary, #ccc);
+  border: 1px solid var(--borderColor, #555);
+  border-radius: $radius;
+  padding: 5px 28px 5px 10px;
+  font-size: 12px;
+  outline: none;
+  transition: border-color $transition;
+
+  &::placeholder {
+    color: var(--textColorDimmed, #888);
+  }
+
+  &:focus {
+    border-color: var(--colorInfo, #4fc3f7);
+  }
+}
+
+.searchClear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--textColorDimmed, #888);
+  font-size: 14px;
+  line-height: 1;
+
+  &:hover {
+    color: var(--textColorPrimary, #ccc);
+  }
+}
+
+.toolbarActions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.toolbarBtn {
+  background: var(--inputControlBackground, #3c3c3c);
+  color: var(--textColorPrimary, #ccc);
+  border: 1px solid var(--borderColor, #555);
+  border-radius: $radius;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all $transition;
+
+  &:hover:not(:disabled) {
+    background: var(--layoutTabsLineColor, rgba(255, 255, 255, 0.1));
+    border-color: var(--textColorDimmed, #888);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.uploadBtn {
+  background: var(--buttonPrimaryBackground, #0e639c);
+  border-color: var(--buttonPrimaryBackground, #0e639c);
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+    background: var(--buttonPrimaryBackground, #0e639c);
+    border-color: var(--buttonPrimaryBackground, #0e639c);
+  }
+}
+
+// ==========================================
+// File List (flat directory listing)
+// ==========================================
+
+.fileList {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--borderColor, #555);
+    border-radius: 4px;
+
+    &:hover {
+      background: var(--textColorDimmed, #888);
+    }
+  }
+}
+
+.fileEntry {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  line-height: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: background $transition;
+
+  &:hover {
+    background: var(--layoutTabsLineColor, rgba(255, 255, 255, 0.05));
+
+    .fileEntryDelete {
+      opacity: 1;
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.parentEntry {
+  color: var(--textColorDimmed, #aaa);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.dirEntry {
+  &:hover {
+    background: rgba(79, 195, 247, 0.06);
+  }
+}
+
+.fileEntryIcon {
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.fileEntryName {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  color: var(--textColorPrimary, #ccc);
+}
+
+.symlinkBadge {
+  color: var(--textColorDimmed, #888);
+  margin-left: 6px;
+  font-size: 11px;
+}
+
+.symlinkTarget {
+  color: var(--textColorDimmed, #666);
+  margin-left: 4px;
+  font-style: italic;
+  font-size: 11px;
+}
+
+.fileEntryPermissions {
+  flex-shrink: 0;
+  font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+  font-size: 11px;
+  color: var(--textColorDimmed, #777);
+  margin: 0 12px;
+  min-width: 95px;
+  text-align: center;
+}
+
+.fileEntrySize {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--textColorDimmed, #777);
+  min-width: 64px;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.fileEntryActions {
+  flex-shrink: 0;
+  width: 20px;
+}
+
+.fileEntryDelete {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  font-size: 14px;
+  color: var(--textColorDimmed, #888);
+  opacity: 0;
+  cursor: pointer;
+  transition: all $transition;
+
+  &:hover {
+    color: var(--colorError, #f44336);
+    background: rgba(244, 67, 54, 0.15);
+  }
+}
+
+// ==========================================
+// Empty / Loading / Error states
+// ==========================================
+
+.emptyDir {
+  color: var(--textColorDimmed, #888);
+  font-size: 12px;
+  font-style: italic;
+  padding: 16px;
+  text-align: center;
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 16px;
+  color: var(--textColorDimmed, #aaa);
+  font-size: 13px;
+}
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  color: var(--colorError, #f44336);
+  font-size: 13px;
+}
+
+.errorIcon {
+  font-size: 16px;
+}
+
+// ==========================================
+// Confirm Delete Dialog
+// ==========================================
+
+.confirmOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.confirmDialog {
+  background: var(--mainBackground, #1e1e1e);
+  border: 1px solid var(--borderColor, #555);
+  border-radius: 8px;
+  padding: 20px 24px;
+  min-width: 320px;
+  max-width: 450px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.confirmTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--textColorPrimary, #ccc);
+  margin-bottom: 12px;
+}
+
+.confirmMessage {
+  font-size: 13px;
+  color: var(--textColorDimmed, #aaa);
+  line-height: 1.5;
+  margin-bottom: 20px;
+
+  strong {
+    color: var(--textColorPrimary, #fff);
+  }
+}
+
+.confirmActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+// ==========================================
+// Container Selector
+// ==========================================
+
+.containerSelect {
+  background: var(--inputControlBackground, #3c3c3c);
+  color: var(--textColorPrimary, #ccc);
+  border: 1px solid var(--borderColor, #555);
+  border-radius: $radius;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color $transition;
+
+  &:focus {
+    outline: none;
+    border-color: var(--colorInfo, #4fc3f7);
+  }
+}
+
+// ==========================================
+// Action Buttons
+// ==========================================
+
+.actionBtn {
+  background: var(--buttonPrimaryBackground, #0e639c);
+  color: #fff;
+  border: none;
+  border-radius: $radius;
+  padding: 6px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all $transition;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.dangerBtn {
+  background: #c62828;
+
+  &:hover:not(:disabled) {
+    background: #b71c1c;
+    opacity: 1;
+  }
+}
+
+.cancelBtn {
+  background: transparent;
+  color: var(--textColorPrimary, #ccc);
+  border: 1px solid var(--borderColor, #555);
+
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.05);
+    opacity: 1;
+  }
+}
+
+// ==========================================
+// File Viewer
+// ==========================================
+
+.fileViewer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 350px;
+}
+
+.fileViewerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--borderColor, #333);
+  background: var(--settingBackground, #252526);
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.fileViewerTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.fileViewerPath {
+  font-size: 12px;
+  font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--textColorPrimary, #ccc);
+}
+
+.fileViewerMeta {
+  font-size: 11px;
+  color: var(--textColorDimmed, #888);
+  white-space: nowrap;
+}
+
+.modifiedBadge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--colorWarning, #ffa726);
+  white-space: nowrap;
+}
+
+.saveBtn {
+  background: var(--colorOk, #4caf50);
+  border-color: var(--colorOk, #4caf50);
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+    background: var(--colorOk, #4caf50);
+    border-color: var(--colorOk, #4caf50);
+  }
+}
+
+.fileViewerActions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.fileViewerContent {
+  flex: 1 1 0;
+  min-height: 0;
+  position: relative;
+}
+
+.editorWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+// ==========================================
+// Cluster Page
+// ==========================================
+
+.clusterPage {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageHeader {
+  margin-bottom: 16px;
+}
+
+.pageTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--textColorPrimary, #ccc);
+}
+
+.podSelector {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.podSelectorLabel {
+  font-size: 12px;
+  color: var(--textColorDimmed, #aaa);
+  font-weight: 500;
+}
+
+.selectInput {
+  background: var(--inputControlBackground, #3c3c3c);
+  color: var(--textColorPrimary, #ccc);
+  border: 1px solid var(--borderColor, #555);
+  border-radius: $radius;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  min-width: 200px;
+  transition: border-color $transition;
+
+  &:focus {
+    outline: none;
+    border-color: var(--colorInfo, #4fc3f7);
+  }
+}
+
+.pageContent {
+  flex: 1;
+  overflow: hidden;
+  border: 1px solid var(--borderColor, #333);
+  border-radius: $radius;
+  background: var(--mainBackground, #1e1e1e);
+  display: flex;
+  flex-direction: column;
+}
+
+// ==========================================
+// Drag-and-Drop Upload
+// ==========================================
+
+.dragOver {
+  position: relative;
+  border: 2px dashed var(--colorInfo, #4fc3f7) !important;
+  background: rgba(79, 195, 247, 0.05);
+}
+
+.dragOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--colorInfo, #4fc3f7);
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.dragOverlayIcon {
+  font-size: 32px;
+}
+
+// ==========================================
+// Context Menu
+// ==========================================
+
+.contextMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  background: transparent;
+}
+
+.contextMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10001;
+  background: var(--mainBackground, #1e1e1e);
+  border: 1px solid var(--borderColor, #555);
+  border-radius: $radius;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  min-width: 160px;
+  padding: 4px 0;
+}
+
+.contextMenuItem {
+  padding: 6px 16px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--textColorPrimary, #ccc);
+  transition: background $transition;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.contextMenuDivider {
+  height: 1px;
+  background: var(--borderColor, #444);
+  margin: 4px 0;
+}
+
+.contextMenuDanger {
+  color: var(--colorError, #f44336);
+
+  &:hover {
+    background: rgba(244, 67, 54, 0.1);
+  }
+}
+
+// ==========================================
+// Binary File Placeholder
+// ==========================================
+
+.binaryPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  min-height: 200px;
+  color: var(--textColorDimmed, #aaa);
+}
+
+.binaryIcon {
+  font-size: 48px;
+  opacity: 0.6;
+}
+
+.binaryFileName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--textColorPrimary, #ccc);
+}
+
+.binaryMessage {
+  font-size: 13px;
+  color: var(--textColorDimmed, #888);
+}
+
+.binarySize {
+  font-size: 12px;
+  color: var(--textColorDimmed, #777);
+}
