@@ -23,7 +23,15 @@ A [Freelens](https://github.com/freelensapp/freelens) extension that provides a 
 
 ## Screenshots
 
-> *Coming soon — contributions welcome!*
+### Directory Browser
+Browse the pod filesystem with breadcrumb navigation, permissions display, file filtering, and upload support.
+
+![Directory Browser](img/freelens-pod-filebrowser-1.jpg)
+
+### File Editor
+View and edit files with syntax highlighting powered by Monaco editor. Split-panel layout with file tree on top and editor on bottom.
+
+![File Editor](img/freelens-pod-filebrowser-2.jpg)
 
 ## Installation
 
