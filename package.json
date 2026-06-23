@@ -4,7 +4,7 @@
     "access": "public"
   },
   "version": "0.1.0",
-  "description": "Browse, view, edit, upload, and delete files inside running Kubernetes pod containers — directly from Freelens.",
+  "description": "Browse, view, edit, upload, and delete files inside running Kubernetes pod containers — directly from Freelens. Debug and troubleshoot containers without kubectl exec commands.",
   "main": "out/main/index.js",
   "renderer": "out/renderer/index.js",
   "files": [
@@ -35,7 +35,13 @@
     "pod",
     "filesystem",
     "file-browser",
-    "kubectl"
+    "kubectl",
+    "debugging",
+    "devtools",
+    "container",
+    "troubleshooting",
+    "monaco-editor",
+    "kubernetes-debugging"
   ],
   "scripts": {
     "type:check": "tsc --noEmit -p tsconfig.json --composite false",

@@ -1,0 +1,38 @@
+<!--
+  OG Social Preview Image Generator
+  Open this file in a browser, take a 1280x640 screenshot.
+  Save as docs/og-image.png or upload to GitHub repo settings.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280, height=640">
+  <title>OG Image</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 1280px; height: 640px; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .og { width: 1280px; height: 640px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px; }
+    .badge { background: rgba(74, 108, 247, 0.2); color: #4a6cf7; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; border: 1px solid rgba(74, 108, 247, 0.3); margin-bottom: 24px; }
+    h1 { font-size: 56px; font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+    h1 span { color: #4a6cf7; }
+    p { font-size: 22px; color: #a0aec0; max-width: 800px; line-height: 1.5; }
+    .features-row { display: flex; gap: 24px; margin-top: 32px; }
+    .feature-tag { background: rgba(255,255,255,0.08); color: #e2e8f0; padding: 10px 20px; border-radius: 8px; font-size: 16px; border: 1px solid rgba(255,255,255,0.1); }
+    .footer { position: absolute; bottom: 32px; color: #4a5568; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="og">
+    <div class="badge">Freelens Extension</div>
+    <h1>Pod <span>File Browser</span></h1>
+    <p>Browse, view, edit, upload, and delete files inside<br>running Kubernetes pod containers</p>
+    <div class="features-row">
+      <div class="feature-tag">Monaco Editor</div>
+      <div class="feature-tag">Drag & Drop Upload</div>
+      <div class="feature-tag">Binary Detection</div>
+    </div>
+    <div class="footer">github.com/masoudei/freelens-pod-filebrowser</div>
+  </div>
+</body>
+</html>

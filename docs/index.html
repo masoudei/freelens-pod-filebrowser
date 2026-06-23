@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freelens Pod File Browser — Browse Kubernetes Pod Filesystems</title>
+  <meta name="description" content="Browse, view, edit, upload, and delete files inside running Kubernetes pod containers — directly from Freelens. Debug and troubleshoot containers without kubectl exec.">
+  <meta property="og:title" content="Freelens Pod File Browser">
+  <meta property="og:description" content="Browse, view, edit, upload, and delete files inside running Kubernetes pod containers — directly from Freelens.">
+  <meta property="og:image" content="https://github.com/masoudei/freelens-pod-filebrowser/raw/master/img/freelens-pod-filebrowser-2.jpg">
+  <meta property="og:url" content="https://masoudei.github.io/freelens-pod-filebrowser">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Freelens Pod File Browser">
+  <meta name="twitter:description" content="Browse, view, edit, upload, and delete files inside running Kubernetes pod containers — directly from Freelens.">
+  <meta name="twitter:image" content="https://github.com/masoudei/freelens-pod-filebrowser/raw/master/img/freelens-pod-filebrowser-2.jpg">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+    header { text-align: center; padding: 4rem 0 2rem; }
+    h1 { font-size: 2.5rem; font-weight: 800; color: #1a1a2e; }
+    h1 span { color: #4a6cf7; }
+    .subtitle { font-size: 1.2rem; color: #666; margin-top: 1rem; }
+    .hero-img { max-width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin: 2rem 0; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+    .feature { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .feature h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #4a6cf7; }
+    .btn { display: inline-block; padding: 0.8rem 2rem; background: #4a6cf7; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 600; margin: 0.5rem; }
+    .btn:hover { background: #3a5ce5; }
+    .btn-outline { background: transparent; color: #4a6cf7; border: 2px solid #4a6cf7; }
+    .btn-outline:hover { background: #4a6cf7; color: #fff; }
+    .cta { text-align: center; padding: 3rem 0; }
+    .footer { text-align: center; padding: 2rem 0; color: #999; font-size: 0.9rem; }
+    @media (max-width: 600px) { .features { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Freelens <span>Pod File Browser</span></h1>
+      <p class="subtitle">Browse, edit, upload, and download files inside Kubernetes pods — directly from Freelens. No kubectl exec required.</p>
+    </header>
+
+    <img src="https://github.com/masoudei/freelens-pod-filebrowser/raw/master/img/freelens-pod-filebrowser-2.jpg" alt="Freelens Pod File Browser screenshot" class="hero-img">
+
+    <div class="features">
+      <div class="feature"><h3>Directory Browsing</h3><p>Navigate pod filesystems with breadcrumb navigation and permissions display.</p></div>
+      <div class="feature"><h3>File Editing</h3><p>Edit files in Monaco editor with full syntax highlighting.</p></div>
+      <div class="feature"><h3>Upload & Download</h3><p>Drag-and-drop upload, one-click download. Binary files detected automatically.</p></div>
+      <div class="feature"><h3>Container Selector</h3><p>Switch between containers and init containers within a pod.</p></div>
+    </div>
+
+    <div class="cta">
+      <a href="https://github.com/masoudei/freelens-pod-filebrowser" class="btn">View on GitHub</a>
+      <a href="https://github.com/masoudei/freelens-pod-filebrowser/blob/master/README.md" class="btn btn-outline">Documentation</a>
+    </div>
+
+    <div class="footer">
+      <p>MIT Licensed. Built for the Freelens community.</p>
+    </div>
+  </div>
+</body>
+</html>

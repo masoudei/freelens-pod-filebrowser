@@ -1,9 +1,27 @@
 # Freelens Pod File Browser
 
-A [Freelens](https://github.com/freelensapp/freelens) extension that provides a full-featured file browser for Kubernetes pod containers. Browse, view, edit, upload, and delete files inside running pods — directly from the Freelens UI.
+> Stop running `kubectl exec -it pod -- cat /etc/config` 50 times a day.  
+> Browse, edit, upload, and download files inside Kubernetes pods — directly from the Freelens UI.
 
 ![License](https://img.shields.io/github/license/masoudei/freelens-pod-filebrowser)
 ![Freelens](https://img.shields.io/badge/freelens-%3E%3D1.5.0-blue)
+![npm](https://img.shields.io/npm/v/@masoudei/freelens-pod-filebrowser)
+![npm](https://img.shields.io/npm/dt/@masoudei/freelens-pod-filebrowser)
+![CI](https://github.com/masoudei/freelens-pod-filebrowser/actions/workflows/release.yml/badge.svg)
+
+---
+
+**Why?** Every time you debug a pod, you run the same ritual: `kubectl exec`, `cat` a file, exit, repeat. This extension eliminates that context-switching tax by giving you a graphical file browser inside your pod view.
+
+---
+
+## Use Cases
+
+- **Debugging configs** — Check nginx.conf, application.yaml, or environment files without typing paths
+- **Inspecting logs** — Browse `/var/log` directories, open log files with syntax highlighting
+- **Fixing containers** — Upload corrected config files via drag-and-drop instead of `kubectl cp`
+- **Verifying deployments** — Confirm files were written correctly after a deploy
+- **Exploring unknown containers** — See the full filesystem layout at a glance
 
 ## Features
 
@@ -154,6 +172,31 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add my feature'`)
 4. Push to the branch (`git push origin feature/my-feature`)
 5. Open a Pull Request
+
+## Limitations
+
+- **Upload cap**: 1 MB maximum per file
+- **Shell requirements**: Pods need `ls`, `cat`, `stat`, `head`, `rm` (present in most images)
+- **No recursive upload**: Directory upload not yet supported
+- **No multi-file select**: Upload one file at a time
+- **Freelens only**: Currently not compatible with Lens (upstream) — contributions welcome
+
+## FAQ
+
+**Q: Does this work with EKS / GKE / AKS / OpenShift?**  
+A: Yes — it uses your existing Freelens auth. If you can see the pod in Freelens, the extension works.
+
+**Q: Is it secure?**  
+A: It inherits your existing RBAC. No new permissions are needed beyond what `kubectl exec` already uses.
+
+**Q: Can I edit binary files?**  
+A: Binary files are detected automatically (extension matching + null byte check) and shown in download-only mode.
+
+**Q: What if my pod doesn't have `ls` or `cat`?**  
+A: Distroless images may lack these utilities. The extension requires basic shell tools.
+
+**Q: Can I contribute a Lens (upstream) version?**  
+A: Yes! The extension API is similar. PRs for Lens compatibility are welcome.
 
 ## License
 
